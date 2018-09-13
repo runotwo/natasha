@@ -98,8 +98,13 @@ DATE = or_(
         or_(
             YEAR,
             YEAR_SHORT
-        ).optional(),
+        ),
         YEAR_WORD.optional()
+    ),
+    rule(
+        DAY,
+        '.',
+        MONTH
     ),
     rule(
         YEAR,
