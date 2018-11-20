@@ -31,6 +31,9 @@ MONTHS = {
     'октябрь': 10,
     'ноябрь': 11,
     'декабрь': 12,
+    'месяц': 13,
+    'год': 14,
+    'лет': 14
 }
 
 
@@ -40,7 +43,7 @@ MONTH_NAME = dictionary(MONTHS).interpretation(
 
 MONTH = and_(
     gte(1),
-    lte(12)
+    lte(14)
 ).interpretation(
     Date.month.custom(int)
 )
@@ -48,6 +51,12 @@ MONTH = and_(
 DAY = and_(
     gte(1),
     lte(31)
+).interpretation(
+    Date.day.custom(int)
+)
+
+COUNT = and_(
+    gte(1),
 ).interpretation(
     Date.day.custom(int)
 )
@@ -129,6 +138,10 @@ DATE = or_(
         ERA_YEAR,
         YEAR_WORD,
         ERA_WORD,
+    ),
+    rule(
+        COUNT,
+        MONTH_NAME
     )
 ).interpretation(
     Date

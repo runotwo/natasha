@@ -311,7 +311,7 @@ COINS_AMOUNT = rule(
 
 MONEY = rule(
     AMOUNT,
-    CURRENCY,
+    CURRENCY.optional(),
     COINS_AMOUNT.optional(),
     COINS_CURRENCY.optional()
 ).interpretation(
