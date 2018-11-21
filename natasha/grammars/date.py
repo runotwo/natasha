@@ -33,7 +33,8 @@ MONTHS = {
     'декабрь': 12,
     'месяц': 13,
     'год': 14,
-    'лет': 14
+    'лет': 14,
+    'день': 15
 }
 
 
@@ -43,7 +44,7 @@ MONTH_NAME = dictionary(MONTHS).interpretation(
 
 MONTH = and_(
     gte(1),
-    lte(14)
+    lte(12)
 ).interpretation(
     Date.month.custom(int)
 )
